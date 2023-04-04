@@ -4,7 +4,6 @@
 import asyncio
 import random
 from typing import Generator
-# Generator[yield_type, send_type, return_type]
 
 
 async def async_generator() -> Generator[float, None, None]:
