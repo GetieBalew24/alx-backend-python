@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-'''Task 2 Executes async_comprehension 4 times
+''' Task 2 Executes async_comprehension 4 times to measure the total  
+    running time
 '''
 import asyncio
 import time
