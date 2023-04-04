@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-'''Task 2 Executes async_comprehension 4 times
+'''Run time for four parallel comprehensions Executes async_comprehension 4 times
 '''
 import asyncio
 import time
