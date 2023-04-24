@@ -78,10 +78,12 @@ class TestGithubOrgClient(unittest.TestCase):
     },
 ])
 class TestIntegrationGithubOrgClient(unittest.TestCase):
-    """Performs integration tests for the `GithubOrgClient` class."""
+    """Performs integration tests
+    for the `GithubOrgClient` class."""
     @classmethod
     def setUpClass(cls):
-        """A class method called before tests in an individual class are run"""
+        """A class method called before 
+        tests in an individual class are run"""
         config = {'return_value.json.side_effect':
                   [
                       cls.org_payload, cls.repos_payload,
@@ -102,7 +104,8 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         self.mock.assert_called()
 
     def test_public_repos_with_license(self):
-        """ Integration test for public repos with License """
+        """ Integration test for 
+        public repos with License """
         test = GithubOrgClient("google")
 
         self.assertEqual(test.public_repos(), self.expected_repos)
@@ -113,5 +116,6 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        """A class method called after tests in an individual class have run"""
+        """A class method called after 
+        tests in an individual class have run"""
         cls.get_patcher.stop()
