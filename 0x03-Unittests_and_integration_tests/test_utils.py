@@ -50,6 +50,7 @@ class TestGetJson(unittest.TestCase):
         with patch("requests.get", return_value=Mock(**config)) as get_request:
             self.assertEqual(get_json(test_url), test_payload)
             get_request.assert_called_once_with(test_url)
+            
 class TestMemoize(unittest.TestCase):
     """ Class for Testing Memoize mplement the TestMemoize(unittest.TestCase)
     class with a test_memoize method."""
