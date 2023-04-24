@@ -4,13 +4,21 @@ Use @patch as a decorator to make sure get_json is called once with
 the expected argument but make sure it is not executed.
 Use @parameterized.expand as a decorator to parametrize 
 the test with a couple of org examples to pass to GithubOrgClient"""
-
-from client import GithubOrgClient
-from fixtures import TEST_PAYLOAD
-from parameterized import parameterized, parameterized_class
-import json
 import unittest
-from unittest.mock import patch, PropertyMock, Mock
+from typing import Dict
+from unittest.mock import (
+    MagicMock,
+    Mock,
+    PropertyMock,
+    patch,
+)
+from parameterized import parameterized, parameterized_class
+from requests import HTTPError
+
+from client import (
+    GithubOrgClient
+)
+from fixtures import TEST_PAYLOAD
 
 
 class TestGithubOrgClient(unittest.TestCase):
