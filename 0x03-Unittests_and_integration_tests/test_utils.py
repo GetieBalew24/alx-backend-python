@@ -47,6 +47,26 @@ class TestGetJson(unittest.TestCase):
         #Test that utils.get_json returns the expected result."
         config = {'json.return_value': test_payload}
         # Test that utils.get_json returns the expected result."
-        with patch("requests.get", return_value=Mock(**config)) as request_get:
+        with patch("requests.get", return_value=Mock(**config)) as get_request:
             self.assertEqual(get_json(test_url), test_payload)
-            request_get.assert_called_once_with(test_url)
+            get_request.assert_called_once_with(test_url)
+class TestMemoize(unittest.TestCase):
+    """ Class for Testing Memoize mplement the TestMemoize(unittest.TestCase)
+    class with a test_memoize method."""
+
+    def test_memoize(self):
+        """ The correct result is returned but a_method is only called once using
+        assert_called_once
+        """
+        class TestClass:
+            """ Test Class with memoize """
+            def a_method(self):
+                return 42
+            @memoize
+            def a_property(self):
+                return self.a_method()
+        with patch.object(TestClass, 'a_method') as mock_test:
+            test= TestClass()
+            test.a_property()
+            test.a_property()
+            mock_test.assert_called_once()
